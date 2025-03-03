@@ -3,21 +3,21 @@ package org.lessons.java.shop;
 //random
 import java.util.Random;
 
-//decimali per valiute e arrotondamenti (per operazioni si usano metodi e non /, *, +, -)
+//decimali per valute e arrotondamenti (per operazioni si usano metodi e non /, *, +, -)
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Prodotto {
     // ISTANZE
-    public int codice;
-    public String nome;
-    public String descrizione;
+    private int codice;
+    private String nome;
+    private String descrizione;
     // BigDecimal va bene per le valute
-    public BigDecimal prezzo;
-    public BigDecimal iva;
+    private BigDecimal prezzo;
+    private BigDecimal iva;
 
     // METODI
-    // costruttore
+    // costruttore 1
     public Prodotto(String nome, String descrizione, BigDecimal prezzo, BigDecimal iva) {
         // metodo per codice random
         Random random = new Random();
@@ -29,12 +29,57 @@ public class Prodotto {
         this.iva = iva;
     }
 
-    // metodo per prezzo base
-    // i metodi get consentono di recuperare una variabile d'istanza (this.prezzo)
+    // costruttore 2
+    public Prodotto(String nome, String descrizione) {
+        this.nome = nome;
+        this.descrizione = descrizione;
+    }
+
+    // GETTER E SETTER
+    // i metodi get consentono di recuperare una variabile d'istanza
+    // i metodi set consentono di modificare una variabile d'istanza
+    // codice prodotto (solo in lettura)
+    public int getCodice() {
+        return this.codice;
+    }
+
+    // nome
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    // descrizione
+    public String getDescrizione() {
+        return this.descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    // prezzo
     public BigDecimal getPrezzoBase() {
         return this.prezzo;
     }
 
+    public void setPrezzoBase(BigDecimal prezzo) {
+        this.prezzo = prezzo;
+    }
+
+    // iva
+    public BigDecimal getIva() {
+        return this.iva;
+    }
+
+    public void setIva(BigDecimal iva) {
+        this.iva = iva;
+    }
+
+    // ALTRI METODI
     // metodo per prezzo comprensivo di iva
     public BigDecimal getPrezzoIvato() {
         if (prezzo != null && iva != null) {
