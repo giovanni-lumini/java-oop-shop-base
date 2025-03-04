@@ -6,11 +6,11 @@ import java.math.BigDecimal;
 
 public class ContoBancario {
     // istanze
-    public String numeroConto;
+    public int numeroConto;
     public BigDecimal saldo;
 
     // costruttore
-    public ContoBancario(String numeroConto) {
+    public ContoBancario(int numeroConto) {
         this.numeroConto = numeroConto;
         // inizializzo il saldo a 0
         this.saldo = BigDecimal.ZERO;
@@ -19,15 +19,22 @@ public class ContoBancario {
     // metodi
     // deposito
     public void deposito(BigDecimal deposito) {
-        this.saldo = saldo.add(deposito);
-        System.out.println("Deposito effettuato");
+        if (deposito.compareTo(BigDecimal.ZERO) > 0) {
+            this.saldo = this.saldo.add(deposito);
+            System.out.println("Deposito effettuato");
+        } else {
+            System.out.println("L'importo depositabile deve essere maggiore di 0");
+        }
     }
 
     // prelievo
     public void prelievo(BigDecimal prelievo) {
-        // diamo valore alla variabile prelievo tramite input
-        this.saldo = saldo.subtract(prelievo);
-        System.out.println("Prelievo effettuato");
+        if (this.saldo.subtract(prelievo).compareTo(BigDecimal.ZERO) > 0) {
+            this.saldo = saldo.subtract(prelievo);
+            System.out.println("Prelievo effettuato");
+        } else {
+            System.out.println("L'importo prelevabile deve essere inferiore del saldo");
+        }
     }
 
     // saldo corrente

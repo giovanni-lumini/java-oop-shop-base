@@ -14,7 +14,7 @@ public class MainSnack {
         System.out.println(datiStudente);
 
         // SNACK 2: contoBancario
-        ContoBancario contoGiovanni = new ContoBancario("123456789");
+        ContoBancario contoGiovanni = new ContoBancario(123456789);
 
         // scanner
         Scanner scanner = new Scanner(System.in);
