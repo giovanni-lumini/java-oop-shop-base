@@ -8,6 +8,7 @@ public class MainSnack {
     public static void main(String[] args) {
         // SNACK 1: studente
         Studente giovanni = new Studente("Giovanni", "Rossi", 20);
+        Studente luca = new Studente("Luca", "Verdi", 30);
         // con il metodo con il return, si possono salvare i dati in una variabile
         // con il void non è possibile
         String datiStudente = giovanni.datiStudente();
@@ -34,5 +35,14 @@ public class MainSnack {
 
         // chiusura scanner
         scanner.close();
+
+        // SNACK 3
+        RegistroStudenti registro = new RegistroStudenti();
+        System.out.println(registro);
+
+        // c'è sopra giovanni (snack 1)
+        registro.nuovoStudente(giovanni);
+        registro.nuovoStudente(luca);
+        System.out.println(registro.toString());
     }
 }
